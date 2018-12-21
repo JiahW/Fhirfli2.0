@@ -1,0 +1,12 @@
+GET / 200 401 - 11.325 ms
+GET /static/style.bundle.css 304 - - 2.177 ms
+GET /static/index.bundle.js 304 - - 0.943 ms
+GET /images/logo.svg 304 - - 1.118 ms
+GET /static/df74ada1d4dce4a5c15afb4f36decdc4.png 304 - - 0.759 ms
+GET /static/3601fc1c36ebbc6989a7772785f8f322.png 304 - - 0.384 ms
+GET /static/ec290b2155f6686ffd3d1ba11cfd16ad.png 304 - - 0.368 ms
+GET /favicon.ico 200 401 - 0.858 ms
+GET /favicon.ico 304 - - 0.776 ms
+POST /auth/corporate/login 401 - - 9.711 ms
+POST /auth/corporate/login 401 - - 1.907 ms
+POST /auth/corporate/login 401 - - 1.391 ms

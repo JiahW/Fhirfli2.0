@@ -6,7 +6,7 @@
 console.log("Launching Server with Environment: "  + JSON.stringify(process.env, null, 3));
 
 // Identify the mongodb port
-const mongo_db_url = 'mongodb://' + process.env.DBNAME + ":" + process.env.KEY + "@" + process.env.DBNAME + ".documents.azure.com:" + process.env.COSMOSPORT + "/?ssl=true";
+const mongo_db_url = process.env.MONGODB_LOCAL;
 const mongo_db_local_url = process.env.MONGODB_LOCAL || mongo_db_url;
 const mongo_db_test_url = process.env.MONGODB_TEST_URL || "mongodb://localhost:27017/test";
 

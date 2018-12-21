@@ -8,7 +8,7 @@ module.exports = (env) => {
     const dbConnection = require('./db')(env);
     const methodOverride = require('method-override');
     const MongoStore = require('connect-mongo')(session);
-
+    const fs = require('fs');
 
     // Router representing the root - can be used as a middleware itself, allowing for this whole tree of
     // endpoints to be a subpath of a larger system
@@ -54,7 +54,7 @@ module.exports = (env) => {
 
     // Logging middleware to record all anomalous events to a log for later use
     if (env.PRODUCTION) {
-        let accessLogStream = fs.createWriteStream(path.join(env.LOGDIR), {flags: 'a'});
+        let accessLogStream = fs.createWriteStream('output.txt');
         router.use(morgan(':method :url :status :res[content-length] - :response-time ms', {stream: accessLogStream}));
     }
 
