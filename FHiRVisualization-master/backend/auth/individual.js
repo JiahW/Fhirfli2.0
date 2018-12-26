@@ -55,38 +55,38 @@ module.exports = (env, passport) => {
 
     // Unused endpoint for signing up users - not required as part of system specification, but useful for testing
     // NOTE: No parameter checking is done on this endpoint and thus it is not production ready.
-    // router.post('/signup', (req, res) => {
-    //     const {email, password, name} = req.body;
-    //     IndividualUser.findOne({'email': email}, (err, userMatch) => {
-    //         if (err) {
-    //             return res.json(sanitizeError(env, err));
-    //         }
-    //
-    //         if (userMatch) {
-    //             return res.json({
-    //                 error: 'USER_EXISTS'
-    //             });
-    //         }
-    //
-    //         const newUser = new IndividualUser({
-    //             'email': email,
-    //             'password': password,
-    //             "name": name
-    //         });
-    //
-    //
-    //         newUser.save((err, savedUser) => {
-    //             if (err) {
-    //                 return res.json(sanitizeError(env, err));
-    //             } else {
-    //                 return res.json({
-    //                     email: savedUser.email,
-    //                     name: savedUser.name
-    //                 });
-    //             }
-    //         });
-    //     });
-    // });
+    router.post('/signup', (req, res) => {
+        const {email, password, name} = req.body;
+        IndividualUser.findOne({'email': email}, (err, userMatch) => {
+            if (err) {
+                return res.json(sanitizeError(env, err));
+            }
+    
+            if (userMatch) {
+                return res.json({
+                    error: 'USER_EXISTS'
+                });
+            }
+    
+            const newUser = new IndividualUser({
+                'email': email,
+                'password': password,
+                "name": name
+            });
+    
+    
+            newUser.save((err, savedUser) => {
+                if (err) {
+                    return res.json(sanitizeError(env, err));
+                } else {
+                    return res.json({
+                        email: savedUser.email,
+                        name: savedUser.name
+                    });
+                }
+            });
+        });
+    });
 
     return router;
 };
