@@ -358,9 +358,9 @@ function generateObservationFor(email, dataType, dateRange) {
     // finds an individual user by email - this is the user you are using for testing
     IndividualUser.findOne({email: email}, (err, user) => {
         // find the associated company - your user should have an associated company or else it will fail
-        CompanyAssociation.findOne({user: user._id}, (err, companyAssociations) => {
+        // CompanyAssociation.findOne({user: user._id}, (err, companyAssociations) => {
             // just grab the id of your associated company
-            let companyId = companyAssociations.company[0];
+            // let companyId = companyAssociations.company[0];
 
 
             // create an observation with like the default FHiR fields filled in
@@ -376,7 +376,7 @@ function generateObservationFor(email, dataType, dateRange) {
             // set the subject to be your individual user (the one specified by email)
             observation.subject = user._id;
             // set the performer to be the associated company
-            observation.performer = companyId;
+            observation.performer = "5a4d43866e5ba73fa060646f"; // companyId
 
             // sets the code for the observation so that it turns up correctly in the backend
             observation.code = {coding: {snowmedCT: data.DATA_SPECIFICATION[dataType].loinc}};
@@ -396,7 +396,7 @@ function generateObservationFor(email, dataType, dateRange) {
                 console.log(JSON.stringify(savedObservation));
             });
 
-        });
+        // });
 
     });
 }
@@ -416,10 +416,11 @@ function generateRealisticDataFor(dataType) {
             return (Math.random() * 0.3) + 1.5;
     }
 }
+//generateIndividual();
 
 // this is a loop that runs 50 times
 for (let i = 0; i < 20; i++) {
-    let prefix = 'dhen';
+    let prefix = 'Marjorie0'; // Jamey0@mail.com
     // // here it generates an observation for my user, for a heartrate data point within the past week
     generateObservationFor(prefix + '@mail.com', 'BodyHeight', 'Weekly');
     generateObservationFor(prefix + '@mail.com', 'BodyWeight', 'Weekly');

@@ -9,7 +9,7 @@ export default class Home extends Component {
             <div id="home-container">
                 <div id="home-content">
                     <h2>Home</h2>
-                    <p>FHiR Visualization Home Page</p>
+                    <p>FHiR FLI 2.0 Home Page</p>
                     <p>Here are your activity logs for today</p>
                     <h3>Steps Overview</h3>
                     <VictoryChart theme={VictoryTheme.material}>

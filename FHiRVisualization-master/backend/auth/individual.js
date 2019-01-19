@@ -71,7 +71,7 @@ module.exports = (env, passport) => {
             const newUser = new IndividualUser({
                 'email': email,
                 'password': password,
-                "name": "john"
+                "name": name
             });
     
     

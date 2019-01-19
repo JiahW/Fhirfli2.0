@@ -8,7 +8,7 @@ RUN yum install -y tar java-1.8.0-openjdk-devel
 RUN yum install -y wget
 
 # download and extract drill
-RUN wget -q -O - http://apache.mirror.anlx.net/drill/drill-1.12.0/apache-drill-1.12.0.tar.gz | tar zxf - --strip-components=1 -C /opt/drill
+RUN wget -q -O - http://apache.mirror.anlx.net/drill/drill-1.15.0/apache-drill-1.15.0.tar.gz | tar zxf - --strip-components=1 -C /opt/drill
 
 # copy over mongodb config file
 # COPY bootstrap-storage-plugins.json  /opt/drill/

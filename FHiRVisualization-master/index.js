@@ -5,6 +5,8 @@ const webpack = require('webpack');
 const app = express();
 const cors = require('cors');
 
+require('dotenv').config();
+
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -62,5 +64,5 @@ else if (process.env.NODE_ENV == 'production') {
 
 
 app.listen(8080, () => {
-    console.log("Express app listening on port " + 80);
+    console.log("Express app listening on port " + 8080);
 });
