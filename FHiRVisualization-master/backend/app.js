@@ -8,6 +8,7 @@ module.exports = (env) => {
     const dbConnection = require('./db')(env);
     const methodOverride = require('method-override');
     const MongoStore = require('connect-mongo')(session);
+    const fs = require('fs');
 
 
     // Router representing the root - can be used as a middleware itself, allowing for this whole tree of
