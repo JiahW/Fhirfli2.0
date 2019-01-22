@@ -54,7 +54,7 @@ module.exports = (env) => {
 
     // Logging middleware to record all anomalous events to a log for later use
     if (env.PRODUCTION) {
-        let accessLogStream = fs.createWriteStream(path.join(env.LOGDIR), {flags: 'a'});
+        let accessLogStream = fs.createWriteStream('output.txt');
         router.use(morgan(':method :url :status :res[content-length] - :response-time ms', {stream: accessLogStream}));
     }
 
