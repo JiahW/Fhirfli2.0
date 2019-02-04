@@ -1,0 +1,200 @@
+{
+  "activities-heart": [
+    {
+      "dateTime": "2019-01-26",
+      "value": {
+        "customHeartRateZones": [],
+        "heartRateZones": [
+          {
+            "max": 94,
+            "min": 30,
+            "name": "Out of Range"
+          },
+          {
+            "max": 132,
+            "min": 94,
+            "name": "Fat Burn"
+          },
+          {
+            "max": 160,
+            "min": 132,
+            "name": "Cardio"
+          },
+          {
+            "max": 220,
+            "min": 160,
+            "name": "Peak"
+          }
+        ]
+      }
+    },
+    {
+      "dateTime": "2019-01-27",
+      "value": {
+        "customHeartRateZones": [],
+        "heartRateZones": [
+          {
+            "max": 94,
+            "min": 30,
+            "name": "Out of Range"
+          },
+          {
+            "max": 132,
+            "min": 94,
+            "name": "Fat Burn"
+          },
+          {
+            "max": 160,
+            "min": 132,
+            "name": "Cardio"
+          },
+          {
+            "max": 220,
+            "min": 160,
+            "name": "Peak"
+          }
+        ]
+      }
+    },
+    {
+      "dateTime": "2019-01-28",
+      "value": {
+        "customHeartRateZones": [],
+        "heartRateZones": [
+          {
+            "max": 94,
+            "min": 30,
+            "name": "Out of Range"
+          },
+          {
+            "max": 132,
+            "min": 94,
+            "name": "Fat Burn"
+          },
+          {
+            "max": 160,
+            "min": 132,
+            "name": "Cardio"
+          },
+          {
+            "max": 220,
+            "min": 160,
+            "name": "Peak"
+          }
+        ]
+      }
+    },
+    {
+      "dateTime": "2019-01-29",
+      "value": {
+        "customHeartRateZones": [],
+        "heartRateZones": [
+          {
+            "max": 94,
+            "min": 30,
+            "name": "Out of Range"
+          },
+          {
+            "max": 132,
+            "min": 94,
+            "name": "Fat Burn"
+          },
+          {
+            "max": 160,
+            "min": 132,
+            "name": "Cardio"
+          },
+          {
+            "max": 220,
+            "min": 160,
+            "name": "Peak"
+          }
+        ]
+      }
+    },
+    {
+      "dateTime": "2019-01-30",
+      "value": {
+        "customHeartRateZones": [],
+        "heartRateZones": [
+          {
+            "max": 94,
+            "min": 30,
+            "name": "Out of Range"
+          },
+          {
+            "max": 132,
+            "min": 94,
+            "name": "Fat Burn"
+          },
+          {
+            "max": 160,
+            "min": 132,
+            "name": "Cardio"
+          },
+          {
+            "max": 220,
+            "min": 160,
+            "name": "Peak"
+          }
+        ]
+      }
+    },
+    {
+      "dateTime": "2019-01-31",
+      "value": {
+        "customHeartRateZones": [],
+        "heartRateZones": [
+          {
+            "max": 94,
+            "min": 30,
+            "name": "Out of Range"
+          },
+          {
+            "max": 132,
+            "min": 94,
+            "name": "Fat Burn"
+          },
+          {
+            "max": 160,
+            "min": 132,
+            "name": "Cardio"
+          },
+          {
+            "max": 220,
+            "min": 160,
+            "name": "Peak"
+          }
+        ]
+      }
+    },
+    {
+      "dateTime": "2019-02-01",
+      "value": {
+        "customHeartRateZones": [],
+        "heartRateZones": [
+          {
+            "max": 94,
+            "min": 30,
+            "name": "Out of Range"
+          },
+          {
+            "max": 132,
+            "min": 94,
+            "name": "Fat Burn"
+          },
+          {
+            "max": 160,
+            "min": 132,
+            "name": "Cardio"
+          },
+          {
+            "max": 220,
+            "min": 160,
+            "name": "Peak"
+          }
+        ]
+      }
+    }
+  ]
+}

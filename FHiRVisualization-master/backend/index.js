@@ -5,7 +5,7 @@ const path = require('path');
 const webpack = require('webpack');
 const env = require('./env');
 const http = require('http');
-
+const passport =  require('passport');
 
 // Utility callback function to return human readable error messages when server errors occur
 function onError(error) {
@@ -66,6 +66,7 @@ if (!env.PRODUCTION) {
     // If not in production, compile and hold the dashboard in memory rather than on file
     const webpackMiddleware = require('webpack-dev-middleware');
     const webpackDevMiddleware = require('webpack-hot-middleware');
+    require("./auth/fitbit.js")(app,passport);
 
     let config = require('../webpack.config.dev');
     let compiler = webpack(config);
@@ -102,6 +103,7 @@ if (!env.PRODUCTION) {
 
 }
 else {
+    require("./auth/fitbit.js")(app,passport);
 
     // If not in development environment, then the website can just be served from the filesystem.
     // This expects that the user has already run yarn run build:production

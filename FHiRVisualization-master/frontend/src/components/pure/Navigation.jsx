@@ -42,6 +42,7 @@ export default class Navigation extends Component {
                            style={buttonStyle}>Logout {this.props.user.email }</a>
                         <div id="navbar-options-container">
                             <ul>
+                                <li><a href="/auth/fitbit">Fitbit</a></li>
                                 <li><Link to="/individual/home">Home</Link></li>
                                 <li><Link to="/individual/data">All Data</Link></li>
                                 <li><Link to="/individual/goals">Goals</Link></li>
