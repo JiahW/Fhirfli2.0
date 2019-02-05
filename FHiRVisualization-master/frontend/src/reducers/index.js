@@ -1,6 +1,8 @@
 import {combineReducers} from "redux";
 import {routerReducer} from "react-router-redux";
+
 import user from 'reducers/user';
+
 import CorporateHome from 'reducers/corporate/home';
 import CorporateSettings from 'reducers/corporate/settings';
 import CorporateData from 'reducers/corporate/data';

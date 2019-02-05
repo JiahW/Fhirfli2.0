@@ -36,9 +36,9 @@ export default class Navigation extends Component {
             (
                 <div id="navbar-root">
                     <img id="navbar-logo" src={require("../../images/logo.svg")}/>
-                    <h3 id="navbar-title"><strong>FHiR</strong> Visualization</h3>
+                    <h3 id="navbar-title">FHiR Fli 2.0</h3>
                     <div id="navbar-buttons">
-                        <a id="navbar-auth-button" onClick={this._IndividualLogout}
+                        <a id="navbar-auth-button" onClick={this._IndividualLogout} // HEEREEE
                            style={buttonStyle}>Logout {this.props.user.email }</a>
                         <div id="navbar-options-container">
                             <ul>
@@ -62,9 +62,9 @@ export default class Navigation extends Component {
                                style={buttonStyle}>Logout {this.props.user.email }</a>
                             <div id="navbar-options-container">
                                 <ul>
+                                    <li><a href="/auth/fitbit">Fitbit</a></li>
                                     <li><Link to="/corporate/home">Home</Link></li>
                                     <li><Link to="/corporate/data">All Data</Link></li>
-
                                     <li><Link to="/corporate/settings">Settings</Link></li>
                                 </ul>
                             </div>

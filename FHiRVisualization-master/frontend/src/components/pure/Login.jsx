@@ -64,11 +64,10 @@ export default class Login extends Component {
                         Password
                         <input className="login-inp" type="password"
                                onChange={e => this.setState({password: e.target.value})} placeholder="Password"/><br />
-                        <input id="login-submit" type="submit" value={this.props.loginPrompt}/>
+                        <input id="login-submit" type="submit" value={this.props.loginPrompt}/> 
                         <p>
                             <Link to={this.props.alternatePath}>{this.props.alternateMessage}</Link>
                         </p>
-
                         <p>
                             Don&lsquo;t have an account? <Link to={this.props.registerPath}>Sign up</Link>
                         </p>

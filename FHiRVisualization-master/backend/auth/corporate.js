@@ -80,51 +80,51 @@ module.exports = (env, passport) => {
 
     // Unused endpoint for signing up users - not required as part of system specification, but useful for testing
     // NOTE: No parameter checking is done on this endpoint and thus it is not production ready.
-    // router.post('/signup', (req, res) => {
-    //     const {email, password, domain, name} = req.body;
-    //
-    //
-    //     CorporateUser.findOne({'email': email}, (err, userMatch) => {
-    //         if (err)
-    //             return res.json(sanitizeError(env, err));
-    //         if (userMatch) {
-    //             return res.json({
-    //                 error: 'USER_EXISTS'
-    //             });
-    //         }
-    //
-    //         Company.findOne({"domain": domain}, (err, companyMatch) => {
-    //             if (err)
-    //                 return res.json(sanitizeError(env, err));
-    //             if (companyMatch) {
-    //                 if (companyMatch.name != name) {
-    //                     return res.json({
-    //                         error: 'COMPANY_NAME_DOES_NOT_MATCH'
-    //                     });
-    //                 }
-    //                 storeUser(email, password, companyMatch._id, (data) => {
-    //                     return res.json(data);
-    //                 })
-    //
-    //             } else {
-    //                 new Company({
-    //                     'domain': domain,
-    //                     'name': name
-    //                 }).save((err, savedCompany) => {
-    //                     if (err) {
-    //                         return res.json(sanitizeError(env, err));
-    //                     }
-    //
-    //                     storeUser(email, password, savedCompany._id, (data) => {
-    //                         return res.json(data);
-    //                     })
-    //                 });
-    //
-    //
-    //             }
-    //         });
-    //     });
-    // });
+    router.post('/signup', (req, res) => {
+        const {email, password, domain, name} = req.body;
+    
+    
+        CorporateUser.findOne({'email': email}, (err, userMatch) => {
+            if (err)
+                return res.json(sanitizeError(env, err));
+            if (userMatch) {
+                return res.json({
+                    error: 'USER_EXISTS'
+                });
+            }
+    
+            Company.findOne({"domain": domain}, (err, companyMatch) => {
+                if (err)
+                    return res.json(sanitizeError(env, err));
+                if (companyMatch) {
+                    if (companyMatch.name != name) {
+                        return res.json({
+                            error: 'COMPANY_NAME_DOES_NOT_MATCH'
+                        });
+                    }
+                    storeUser(email, password, companyMatch._id, (data) => {
+                        return res.json(data);
+                    })
+    
+                } else {
+                    new Company({
+                        'domain': domain,
+                        'name': name
+                    }).save((err, savedCompany) => {
+                        if (err) {
+                            return res.json(sanitizeError(env, err));
+                        }
+    
+                        storeUser(email, password, savedCompany._id, (data) => {
+                            return res.json(data);
+                        })
+                    });
+    
+    
+                }
+            });
+        });
+    });
 
 
     return router;

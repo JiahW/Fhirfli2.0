@@ -39,9 +39,6 @@ const user = (state = {
         case CORPORATE_LOGIN_USER:
             return Object.assign({}, state, {authentication_isWaiting: true});
             break;
-
-
-
         case CORPORATE_LOGIN_SUCCESS_USER:
             return Object.assign({}, state, {
                 authentication_isWaiting: false,
@@ -155,12 +152,10 @@ const user = (state = {
             });
             break;
 
-
         default:
             // VERY IMPORTANT
             return state;
     }
 };
-
 
 export default user;

@@ -52,8 +52,6 @@ module.exports = (env, passport) => {
         }
     });
 
-
-    // Unused endpoint for signing up users - not required as part of system specification, but useful for testing
     // NOTE: No parameter checking is done on this endpoint and thus it is not production ready.
     router.post('/signup', (req, res) => {
         const {email, password, name} = req.body;
@@ -73,7 +71,6 @@ module.exports = (env, passport) => {
                 'password': password,
                 "name": name
             });
-    
     
             newUser.save((err, savedUser) => {
                 if (err) {

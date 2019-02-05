@@ -26,8 +26,13 @@ if(!isNode) {
 }
 
 const finalCreateStore = applyMiddleware(...middleware)(createStore);
-const store = finalCreateStore(rootReducer);
+// const store = finalCreateStore(rootReducer);
 
+// enabled google chrome redux devtools extensions for debugging for future developers
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+ const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(
+    applyMiddleware(...middleware)
+  ));
 const history = syncHistoryWithStore(browserHistory, store);
 const routes = createRoutes(store, history);
 

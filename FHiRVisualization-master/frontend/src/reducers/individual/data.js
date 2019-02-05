@@ -26,24 +26,8 @@ import {
 
 const DEFAULT_COLOUR = 'yellow';
 const data = (state = {
-    preferences: [
-        /*
-         {
-         "dataType": "HeartRate",
-         "colour":  DEFAULT_COLOUR,
-         "visualizations": [],
-         }
-         */
-    ],
-    validVisualizations: {
-        /*
-         HeartRate: {
-         visualizations: [],
-         hasLoaded: false, // set to true once loaded
-         isLoading: false
-         }
-         */
-    },
+    preferences: [],
+    validVisualizations: {},
     colours: [],
     isWaiting: false,
     hasErrored: false,
@@ -54,19 +38,6 @@ const data = (state = {
             return Object.assign({}, state, {isWaiting: true});
             break;
         case LOAD_PREFERENCES_SUCCESS: {
-            // action .data contains
-            // preferences:
-            // {
-            //   dataType: ______,
-            //   colour  : ______,
-            //   visualizations: [],
-            // }
-            // dataTypes:
-            // {
-            //    dataType: ________,
-            //    name:     ________,
-            //    profile:  ________
-            // }
             let validVisualizations = {};
             let preferences = action.data.preferences;
             let seenVisualizations = new Set();

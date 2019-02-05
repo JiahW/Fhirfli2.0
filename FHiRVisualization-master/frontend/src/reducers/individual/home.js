@@ -8,29 +8,7 @@ const home = (state = {
     isLoading: false,
     hasErrored: false,
     errorMsg: "",
-    data: {
-        /*
-         // only the datasets requested will be present
-         'heartRate': {
-         // only the ranges requested will be present
-         'Annual': [
-         {<FHIR-PROFILE>},
-         {<FHIR-PROFILE>}....
-         ]
-         'Daily': [
-         {<FHIR-PROFILE>},
-         {<FHIR-PROFILE>},
-         ....
-         ]
-         'Weekly': [
-         {<FHIR-PROFILE>},
-         {<FHIR-PROFILE>},
-         ....
-         ]
-         }
-
-         */
-    }
+    data: {}
 }, action) => {
     switch (action.type) {
         case LOAD_DATA:
