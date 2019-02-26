@@ -5,6 +5,7 @@ import IndividualHomeContainer from "components/container/individual/HomeContain
 import CorporateHomeContainer from "components/container/corporate/HomeContainer";
 import HomeContainer from "components/container/HomeContainer";
 import Default from "components/pure/Default";
+import { Provider } from "react-redux";
 
 import CorporateLoginContainer from "components/container/corporate/LoginContainer";
 import CorporateRegisterContainer from "components/container/corporate/RegisterContainer";

@@ -18,7 +18,7 @@ module.exports = (app, passport) =>
   passport.use(new FitbitStrategy({
       clientID:     '22DB8R',
       clientSecret: 'dbc7f22e706a3d0270536abbc80b5d39',
-      callbackURL: "https://brown-frog-61.localtunnel.me/auth/fitbit/callback"
+      callbackURL: "https://helpless-sheep-56.localtunnel.me/auth/fitbit/callback"
     },
     function(accessToken, refreshToken, profile, done) {
       // TODO: save accessToken here for later use
@@ -73,7 +73,7 @@ module.exports = (app, passport) =>
   ));
 
   app.get( '/auth/fitbit/callback', passport.authenticate( 'fitbit', { 
-          successRedirect: '/auth/fitbit/success',
+          successRedirect: '/individual/home',
           failureRedirect: '/auth/fitbit/failure'
   }));
   
