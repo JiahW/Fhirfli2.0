@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
-let names = ["Dhen", "Alex", "Joe", "Bob", "Kiran", "Randi", "Jamey", "Antione", "Tanya", "Dorathy", "Nelia", "Maribel", "Lila", "Emory", "Marjorie", "Regenia", "Meghann", "Jannie", "Pearl", "Jinny", "Un", "Elna", "Iola", "Kamilah", "Joel", "Corine", "Nelson", "Theressa", "Estrella", "Kathryn", "Elden", "Garland", "Duane", "German", "Love", "Carmella", "Myrna", "Alex", "Darcy", "Stefani", "Onita", "Starr", "Giovanni", "Magda", "Beryl", "Terresa", "Rikki", "Helaine", "Essie", "Trinidad", "Izola", "Toni", "Regine", "Ali", "Cyril"];
 
+let names = ["Dhen", "Alex", "Joe", "Bob", "Kiran", "Randi", "Jamey", "Antione", "Tanya", "Dorathy", "Nelia", "Maribel", "Lila", "Emory", "Marjorie", "Regenia", "Meghann", "Jannie", "Pearl", "Jinny", "Un", "Elna", "Iola", "Kamilah", "Joel", "Corine", "Nelson", "Theressa", "Estrella", "Kathryn", "Elden", "Garland", "Duane", "German", "Love", "Carmella", "Myrna", "Alex", "Darcy", "Stefani", "Onita", "Starr", "Giovanni", "Magda", "Beryl", "Terresa", "Rikki", "Helaine", "Essie", "Trinidad", "Izola", "Toni", "Regine", "Ali", "Cyril"];
 
 const user = require('./backend/db/models/user');
 const data = require('./backend/db/models/data');
@@ -20,6 +20,8 @@ const Observation = require('./backend/db/models/FHiR/Observation');
 const FamilyMemberHistory = require('./backend/db/models/FHiR/FamilyMemberHistory');
 const Condition = require('./backend/db/models/FHiR/Condition');
 
+const randomUser = randomDocument(IndividualUser);
+const randomCompany = randomDocument(Company);//(callback) => Company.findOne({}, callback);
 
 mongoose.connect("mongodb://localhost:27017", {useMongoClient: true});
 const db = mongoose.connection;
@@ -36,12 +38,10 @@ const randomDocument = (page) => (callback) => {
     });
 };
 
-const randomUser = randomDocument(IndividualUser);
-const randomCompany = randomDocument(Company);//(callback) => Company.findOne({}, callback);
-
 function randomFrom(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
+
 function randomDate() {
     let start = new Date('1995-12-17T03:24:00');
     let end = new Date();
@@ -113,7 +113,6 @@ function generateDataForCorporateUser(dataType, dateRange) {
 
 }
 
-
 function generateDataForExistingCorporateUser(email, dataType, dateRange) {
     CorporateUser.findOne({email: email}, (err, user) => {
         console.log(JSON.stringify(user));
@@ -152,7 +151,6 @@ function generateDataForExistingCorporateUser(email, dataType, dateRange) {
     });
 
 }
-
 
 function generateCondtion() {
     randomUser((err, user) => {
@@ -212,7 +210,6 @@ function generateFamilyMemberHistory() {
     });
 
 }
-
 
 function generateIndividual() {
     randomCompany((err, company) => {
@@ -362,7 +359,6 @@ function generateObservationFor(email, dataType, dateRange) {
             // just grab the id of your associated company
             // let companyId = companyAssociations.company[0];
 
-
             // create an observation with like the default FHiR fields filled in
             // all you need to set are the
             //          - the subject,
@@ -400,7 +396,6 @@ function generateObservationFor(email, dataType, dateRange) {
 
     });
 }
-
 
 function generateRealisticDataFor(dataType) {
     switch (dataType) {

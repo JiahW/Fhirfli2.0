@@ -19,9 +19,6 @@ if(!isNode) {
     middleware.push(createLogger());
 }
 
-const finalCreateStore = applyMiddleware(...middleware)(createStore);
-// const store = finalCreateStore(rootReducer);
-
 // the 2 functions loadState & saveState were used to fix the issue of redux ignoring persisted state
 // such that before, when the user refreshes the page, he would get logged out because of redux state
 function loadState() {
@@ -47,10 +44,12 @@ function saveState(state){
 const persistedState = loadState();
 
 // enabled google chrome redux devtools extensions for debugging for future developers
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
- const store = createStore(rootReducer, persistedState, composeEnhancers(
-    applyMiddleware(...middleware)
-  ));
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const store = createStore(rootReducer, persistedState, composeEnhancers(applyMiddleware(...middleware)));
+
+const finalCreateStore = applyMiddleware(...middleware)(createStore);
+const store = finalCreateStore(rootReducer, persistedState);
+
 
 store.subscribe(() => {
     saveState(store.getState());
@@ -68,15 +67,3 @@ render(
     document.getElementById("app")
 );
 
-// ReactDOM.render(
-//     <Provider store={store}>
-//       { /* Tell the Router to use our enhanced history */ }
-//       <Router history={history}>
-//         <Route path="/" component={App}>
-//           <Route path="foo" component={Foo}/>
-//           <Route path="bar" component={Bar}/>
-//         </Route>
-//       </Router>
-//     </Provider>,
-//     document.getElementById('mount')
-//   )

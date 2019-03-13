@@ -49,7 +49,7 @@ export default class Login extends Component {
             <div id="login-parent-container">
                 <div id="login-title-container">
                     <h2 id="text">
-                        Log in to <strong>FHiR</strong> Visualization
+                        Log in to <strong>FHiR</strong> FLI 2.0
                     </h2>
                     <h5 id="text">
                         <p >{this.props.loginAccountType}</p>

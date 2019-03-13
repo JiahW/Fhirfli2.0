@@ -42,7 +42,7 @@ module.exports = (env) => {
 
     // Body parser for supporting JSON post requests
     router.use(bodyParser.json());
-
+    
     // Use the MongoDB to store sessions for the route - this increases scalability, as the alternative would be storing
     // them locally, which would be limited by the capabilities of the host OS's filesystem
     router.use(session({
