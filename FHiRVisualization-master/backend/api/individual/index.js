@@ -2,6 +2,8 @@
 module.exports = (env) => {
     const express = require('express');
     const router = express.Router();
+
+    // const Fitbit = require('.../auth/fitbit');
     const preferences = require('./preferences');
     const associations = require('./associations');
     const goals = require('./goals');

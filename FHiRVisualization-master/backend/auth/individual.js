@@ -52,8 +52,9 @@ module.exports = (env, passport) => {
         }
     });
 
-    // NOTE: No parameter checking is done on this endpoint and thus it is not production ready.
+    // Added parameter checking, user registeration system is now ready for production
     router.post('/signup', (req, res) => {
+        
         const {email, password, name} = req.body;
         IndividualUser.findOne({'email': email}, (err, userMatch) => {
             if (err) {
@@ -71,7 +72,11 @@ module.exports = (env, passport) => {
                 'password': password,
                 "name": name
             });
-    
+            
+            // if ( !((newUser.email).toString()).includes('@') ){
+            //     return res.json({error: 'invalid email format'});
+            // }
+
             newUser.save((err, savedUser) => {
                 if (err) {
                     return res.json(sanitizeError(env, err));

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
-
 let names = ["Dhen", "Alex", "Joe", "Bob", "Kiran", "Randi", "Jamey", "Antione", "Tanya", "Dorathy", "Nelia", "Maribel", "Lila", "Emory", "Marjorie", "Regenia", "Meghann", "Jannie", "Pearl", "Jinny", "Un", "Elna", "Iola", "Kamilah", "Joel", "Corine", "Nelson", "Theressa", "Estrella", "Kathryn", "Elden", "Garland", "Duane", "German", "Love", "Carmella", "Myrna", "Alex", "Darcy", "Stefani", "Onita", "Starr", "Giovanni", "Magda", "Beryl", "Terresa", "Rikki", "Helaine", "Essie", "Trinidad", "Izola", "Toni", "Regine", "Ali", "Cyril"];
+
 
 const user = require('./backend/db/models/user');
 const data = require('./backend/db/models/data');
@@ -20,8 +20,6 @@ const Observation = require('./backend/db/models/FHiR/Observation');
 const FamilyMemberHistory = require('./backend/db/models/FHiR/FamilyMemberHistory');
 const Condition = require('./backend/db/models/FHiR/Condition');
 
-const randomUser = randomDocument(IndividualUser);
-const randomCompany = randomDocument(Company);//(callback) => Company.findOne({}, callback);
 
 mongoose.connect("mongodb://localhost:27017", {useMongoClient: true});
 const db = mongoose.connection;
@@ -37,6 +35,9 @@ const randomDocument = (page) => (callback) => {
         page.findOne().skip(random).exec(callback);
     });
 };
+
+const randomUser = randomDocument(IndividualUser);
+const randomCompany = randomDocument(Company);//(callback) => Company.findOne({}, callback
 
 function randomFrom(arr) {
     return arr[Math.floor(Math.random() * arr.length)];

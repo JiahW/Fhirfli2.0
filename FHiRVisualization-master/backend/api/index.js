@@ -2,6 +2,9 @@
 module.exports = (env) => {
     const express = require('express');
     const router = express.Router();
+    const passport = require('passport');
+
+    const Fitbit = (require('../auth/fitbit'))(router,passport);
     const corporate = (require('./corporate'))(env);
     const individual = (require('./individual'))(env);
     const data = require('./data')(env);
@@ -10,7 +13,7 @@ module.exports = (env) => {
     // Ensure user is authenticated before allowing access to all further endpoints
     router.use((req, res, next) => {
         if (!req.user) {
-            // res.status(status).send(body);
+            // res.status(req.status).send(req.body);
             res.send(403, 'Unauthorized');
         } else {
             next();
@@ -23,6 +26,7 @@ module.exports = (env) => {
     router.use('/individual', individual);
     router.use('/data', data);
     router.use('/visualizations', visualizations);
+    // router.use('../auth/fitbit', Fitbit);
 
     return router;
 };

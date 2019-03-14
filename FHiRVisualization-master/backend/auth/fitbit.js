@@ -18,7 +18,7 @@ module.exports = (app, passport) =>
   passport.use(new FitbitStrategy({
       clientID:     '22DB8R',
       clientSecret: 'dbc7f22e706a3d0270536abbc80b5d39',
-      callbackURL: "https://helpless-sheep-56.localtunnel.me/auth/fitbit/callback"
+      callbackURL: "https://9fa0d709.ngrok.io/auth/fitbit/callback"
     },
     function(accessToken, refreshToken, profile, done) {
       // TODO: save accessToken here for later use
@@ -37,13 +37,13 @@ module.exports = (app, passport) =>
 
       // activites
       // xhr.open('GET', 'https://api.fitbit.com/1/user/'+ fitbitProfile +'/activities/date/' + todayDate + '.json');
-
-      // Body & Weight, GET https://api.fitbit.com/1/user/[user-id]/body/log/fat/date/[date].json
-      // xhr.open('GET', 'https://api.fitbit.com/1/user/'+ fitbitProfile +'/body/log/fat/date/' + todayDate + '.json');
+      console.log(todayDate);
+      // Weight, https://api.fitbit.com/1/user/[user-id]/body/log/weight/date/[date].json
+      xhr.open('GET', 'https://api.fitbit.com/1/user/'+ fitbitProfile +'/body/log/weight/date/' + todayDate + '.json');
 
       //  Sleep, GET https://api.fitbit.com/1.2/user/[user-id]/sleep/date/[date].json
-      xhr.open('GET', 'https://api.fitbit.com/1.2/user/'+ fitbitProfile +'/sleep/date/' + todayDate + '.json');
-
+      //  xhr.open('GET', 'https://api.fitbit.com/1.2/user/'+ fitbitProfile +'/sleep/date/' + todayDate + '.json');
+      
       xhr.setRequestHeader("Authorization", 'Bearer ' + OAuthtoken);
       xhr.onload = function() {
         if (xhr.status === 200) { // xhr.status === 200, means status is "OK", 404 for not found, 403 for forbidden, 500 is internal server error, 400 is 
@@ -54,7 +54,7 @@ module.exports = (app, passport) =>
             result = converter.convert(myObj);
 
             // The result is a FHIR bundle containing sleep observations
-            console.log(result);
+            console.log(myObj);
         }else{
           console.log(xhr.status);
         }
