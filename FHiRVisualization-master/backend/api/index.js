@@ -11,14 +11,14 @@ module.exports = (env) => {
     const visualizations = require('./visualizations')(env);
 
     // Ensure user is authenticated before allowing access to all further endpoints
-    router.use((req, res, next) => {
-        if (!req.user) {
-            // res.status(req.status).send(req.body);
-            res.send(403, 'Unauthorized');
-        } else {
-            next();
-        }
-    });
+    // router.use((req, res, next) => {
+    //     if (!req.user) {
+    //         // res.status(req.status).send(req.body);
+    //         res.send(403, 'Unauthorized');
+    //     } else {
+    //         next();
+    //     }
+    // });
 
 
     // Main System endpoints
@@ -26,7 +26,7 @@ module.exports = (env) => {
     router.use('/individual', individual);
     router.use('/data', data);
     router.use('/visualizations', visualizations);
-    // router.use('../auth/fitbit', Fitbit);
+    router.use('../auth/fitbit', Fitbit);
 
     return router;
 };
