@@ -4,7 +4,7 @@ module.exports = (env) => {
     const router = express.Router();
     const passport = require('passport');
 
-    const Fitbit = (require('../auth/fitbit'))(router,passport);
+    //const Fitbit = (require('../auth/fitbit'))(router,passport);
     const corporate = (require('./corporate'))(env);
     const individual = (require('./individual'))(env);
     const data = require('./data')(env);
@@ -26,7 +26,7 @@ module.exports = (env) => {
     router.use('/individual', individual);
     router.use('/data', data);
     router.use('/visualizations', visualizations);
-    router.use('../auth/fitbit', Fitbit);
+    //router.use('../auth/fitbit', Fitbit);
 
     return router;
 };
