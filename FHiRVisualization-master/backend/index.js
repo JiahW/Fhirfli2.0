@@ -130,7 +130,7 @@ else {
 // server.on('error', onError);
 // server.on('listen', onListening);
 // server.listen(env.PORT);
-var TLSpath = "/home/fhirfli/fhirfli/FHiRVisualization-master";
+var TLSpath = "/home/fhirfli/fhirfli/FHiRVisualization-master/cert/";
 const https_options = {
     key: fs.readFileSync(TLSpath+"privkey.pem"),
     cert: fs.readFileSync(TLSpath+"fullchain.pem")
