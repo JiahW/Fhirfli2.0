@@ -4,7 +4,9 @@ const express = require('express');
 const path = require('path');
 const webpack = require('webpack');
 const env = require('./env');
+const fs = require('fs');
 const http = require('http');
+const https = require('https');
 const passport =  require('passport');
 
 // Utility callback function to return human readable error messages when server errors occur
@@ -124,13 +126,23 @@ else {
 
 
 // Initialize and run the server.
-const server = http.createServer(app);
+//const server = http.createServer(app);
+// server.on('error', onError);
+// server.on('listen', onListening);
+// server.listen(env.PORT);
 
-server.on('error', onError);
-server.on('listen', onListening);
-server.listen(env.PORT);
+const https_options = {
+    key: fs.readFileSync("key.pem"),
+    cert: fs.readFileSync("cert.pem")
+};
+
+https.createServer(https_options, app).listen(443, ()=>{
+    console.log("HTTPS server is running");
+});
+
+
 
 // Apache Drill Requests require a slightly increased time out
 server.timeout = 320000;
 
-console.log("Express " + env.PRODUCTION + " app listening on port " + env.PORT);
+console.log("Express " + env.PRODUCTION + " app listening on port 443");
