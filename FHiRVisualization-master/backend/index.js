@@ -130,10 +130,10 @@ else {
 // server.on('error', onError);
 // server.on('listen', onListening);
 // server.listen(env.PORT);
-
+var TLSpath = "/home/fhirfli/fhirfli/FHiRVisualization-master";
 const https_options = {
-    key: fs.readFileSync("key.pem"),
-    cert: fs.readFileSync("cert.pem")
+    key: fs.readFileSync(TLSpath+"privkey.pem"),
+    cert: fs.readFileSync(TLSpath+"fullchain.pem")
 };
 
 https.createServer(https_options, app).listen(443, ()=>{
@@ -142,7 +142,12 @@ https.createServer(https_options, app).listen(443, ()=>{
 
 
 
-// Apache Drill Requests require a slightly increased time out
+//Initialize and run the server.
+const server = http.createServer(app);
+server.on('error', onError);
+server.on('listen', onListening);
+server.listen(env.PORT);
+//Apache Drill Requests require a slightly increased time out
 server.timeout = 320000;
 
 console.log("Express " + env.PRODUCTION + " app listening on port 443");
