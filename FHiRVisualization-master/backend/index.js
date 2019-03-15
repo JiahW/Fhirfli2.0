@@ -132,15 +132,15 @@ else {
 // server.listen(env.PORT);
 
 
-// var TLSpath = "/home/fhirfli/fhirfli/FHiRVisualization-master/cert/";
-// const https_options = {
-//     key: fs.readFileSync(TLSpath+"privkey.pem"),
-//     cert: fs.readFileSync(TLSpath+"fullchain.pem")
-// };
+var TLSpath = "/home/fhirfli/fhirfli/FHiRVisualization-master/cert/";
+const https_options = {
+    key: fs.readFileSync(TLSpath+"privkey.pem"),
+    cert: fs.readFileSync(TLSpath+"fullchain.pem")
+};
 
-// https.createServer(https_options, app).listen(443, ()=>{
-//     console.log("HTTPS server is running");
-// });
+https.createServer(https_options, app).listen(443, ()=>{
+    console.log("HTTPS server is running");
+});
 
 //Initialize and run the server.
 const server = http.createServer(app);
