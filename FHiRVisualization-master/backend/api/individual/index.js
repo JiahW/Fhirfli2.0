@@ -10,13 +10,13 @@ module.exports = (env) => {
     const data = require('./data');
 
     // Ensure that all users requesting the following endpoints are individual users, not corporate ones
-    router.use((req, res, next) => {
-        if (req.user.isCorporate) {
-            res.send(403, 'Unauthorized');
-        } else {
-            next();
-        }
-    });
+    // router.use((req, res, next) => {
+    //     if (req.user.isCorporate) {
+    //         res.send(403, 'Unauthorized');
+    //     } else {
+    //         next();
+    //     }
+    // });
 
 
     // All Individual Endpoints
