@@ -12,8 +12,6 @@ module.exports = (env) => {
 
     // Ensure user is authenticated before allowing access to all further endpoints
     router.use((req, res, next) => {
-        console.log(req);
-        console.log(req.user);
         if (!req.user) {
             // res.status(req.status).send(req.body);
             res.send(403, 'Unauthorized');
