@@ -49,7 +49,8 @@ module.exports = (env) => {
         secret: env.SECRET,
         store: new MongoStore({mongooseConnection: dbConnection}),
         resave: true,
-        saveUninitialized: true
+        saveUninitialized: true,
+        maxAge: 20000
     }));
 
 
