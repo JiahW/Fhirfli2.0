@@ -18,7 +18,7 @@ module.exports = (app, passport) =>
   passport.use(new FitbitStrategy({
       clientID:     '22DB8R',
       clientSecret: 'dbc7f22e706a3d0270536abbc80b5d39',
-      callbackURL: "https://9fa0d709.ngrok.io/auth/fitbit/callback"
+      callbackURL: "https://fhirfli.uk.to/auth/fitbit/callback"
     },
     function(accessToken, refreshToken, profile, done) {
       // TODO: save accessToken here for later use
