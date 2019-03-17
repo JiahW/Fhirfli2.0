@@ -7,6 +7,8 @@ mongoose.Promise = Promise;
 
 // A schema to represent individual users on the system
 const individualUserSchema = new Schema({
+    access_token: { type: String, required: false, default: ''},
+    refresh_token: { type: String,  required: false, default: ''},
     email: {type: String, unique: true, required: true},         // the email used to identify the user
     password: {type: String, unique: false, required: true},     // a cryptographic hash of the password used to log in
     name: {                                                        // the name of the user
