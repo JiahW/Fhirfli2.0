@@ -3,7 +3,7 @@ module.exports = (app, passport) =>
   const User = require('../db/models/user').individual;
   const FitbitApiClient = require("fitbit-node");
   var fhir = require('fhir-converter');
-  var callback = "https://c3360cde.ngrok.io/auth/fitbit/callback";
+  var callback = "https://fhirfli.uk.to/auth/fitbit/callback";
   // Creating a converter from Fitbit to FHIR
   var converter = new fhir('fitbit');
 
