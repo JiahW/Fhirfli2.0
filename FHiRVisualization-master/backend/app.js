@@ -48,8 +48,8 @@ module.exports = (env) => {
     router.use(session({
         secret: env.SECRET,
         store: new MongoStore({mongooseConnection: dbConnection}),
-        resave: true,
-        saveUninitialized: true,
+        resave: false,
+        saveUninitialized: false,
         maxAge: 20000
     }));
 

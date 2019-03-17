@@ -152,5 +152,5 @@ server.listen(env.PORT);
 //Apache Drill Requests require a slightly increased time out
 server.timeout = 320000;
 
-console.log("Express " + env.PRODUCTION + " app listening on port " + env.PORT);
-// console.log("Express " + env.PRODUCTION + " app listening on port 443");
+//console.log("Express " + env.PRODUCTION + " app listening on port " + env.PORT);
+ console.log("Express " + env.PRODUCTION + " app listening on port 443");

@@ -35,12 +35,7 @@ module.exports = (app, passport) =>
       res.status(err.status).send(err);
     });*/
 
-  app.get('/auth/fitbit',(req, res) => {
-    // Explicitly save the session before redirecting!
-    req.session.save(() => {
-      res.redirect(client.getAuthorizeUrl('sleep activity heartrate location profile weight', callback));
-    }); 
-  });
+  app.get('/auth/fitbit',(req, res) => {res.redirect(client.getAuthorizeUrl('sleep activity heartrate location profile weight', callback));});
 
   app.get( '/auth/fitbit/callback', (req, res) => {
   // exchange the authorization code we just received for an access token
