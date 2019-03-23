@@ -52,7 +52,6 @@ module.exports = (env, passport) => {
         }
     });
 
-    // Added parameter checking, user registeration system is now ready for production
     router.post('/signup', (req, res) => {
         
         const {email, password, name} = req.body;
