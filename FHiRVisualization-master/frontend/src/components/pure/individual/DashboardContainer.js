@@ -6,6 +6,7 @@ import GroupBarChart from "../corporate/visualizations/GroupBarChart";
 import BrushLineGraph from "./visualizations/BrushLineGraph";
 import GoalRing from "./visualizations/GoalRing";
 import Clock from "./visualizations/Clock";
+// import Victory from "./visualizations/Victory";
 
 import * as PropTypes from 'prop-types';
 
@@ -237,6 +238,9 @@ export default class DashboardGrid extends React.Component {
         else if (visualization.includes("Clock")) {
           return 4;
         }
+        // else if (visualization.includes("Victory")) {
+        //     return 5;
+        //   }
         return 0;
     }
 
@@ -301,6 +305,13 @@ export default class DashboardGrid extends React.Component {
                                       data={ this.state.data[vis.dataType][vis.dataRange] } title={ vis.dataType }
                                       colour={ vis.colour }/>);
                break;
+            // case 5:
+            //    return (<Victory key={vis.dataRange + vis.dataType + this.checkVisType(vis.visType) }
+            //                           dataRange={ vis.dataRange } className="dash__component"
+            //                           ylabel={dateTypeToyLabelMap[vis.dataType]}
+            //                           data={ this.state.data[vis.dataType][vis.dataRange] } title={ vis.dataType }
+            //                           colour={ vis.colour }/>);
+            //    break;
             default:
                 console.log("Unkown Data visualizations");
                 break;
@@ -309,8 +320,14 @@ export default class DashboardGrid extends React.Component {
 
     // Returns a 'GoalRing' component given some specific goalData for a 'Title'
     renderGoalvisualization(name, goal) {
+        // return (<Clock key={goal + goal.name} className="dash__component" data={ this.state.goalData[name] }
+        //                   title={ name } colour={ goal.colour }/> );
         return (<GoalRing key={goal + goal.name} className="dash__component" data={ this.state.goalData[name] }
                           title={ name } colour={ goal.colour }/> );
+        // return (
+        // <BarChart key={goal + goal.name} className="dash__component" data={ this.state.goalData[name] }
+        //                   title={ name } colour={ goal.colour }/>
+        // );
     }
 
     loadGoals() {

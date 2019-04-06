@@ -6,6 +6,7 @@ const FitbitSchema = new Schema({
     userId: {type: String, required: true},
     fitbitdata: {type: String, required: true},
     FitbitFHiRdata: {type: String, required: true},
+    updatedAt: {type: Date, default: Date.now},
     type: String
 });
 
