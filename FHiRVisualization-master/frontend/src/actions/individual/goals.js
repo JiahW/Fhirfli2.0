@@ -104,7 +104,7 @@ export function manualCreateGoal(goal) {
             !goal.value ||
             !goal.period ||
             !goal.colour) {
-            console.log("Attempting to goal without required fields: " + JSON.stringify(goal));
+            // console.log("Attempting to goal without required fields: " + JSON.stringify(goal));
         }
 
         return axios({
@@ -128,7 +128,7 @@ export function manualUpdateGoal(goal) {
             !goal.value ||
             !goal.period ||
             !goal.colour) {
-            console.log("Attempting to goal without required fields: " + JSON.stringify(goal));
+            // console.log("Attempting to goal without required fields: " + JSON.stringify(goal));
         }
 
 

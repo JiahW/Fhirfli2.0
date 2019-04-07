@@ -72,7 +72,7 @@ export function manualLogin(data,successPath) {
         dispatch(beginLogin());
         return makeUserRequest("post", data)
             .then(response => {
-                console.log("Got " + response);
+                // console.log("Got " + response);
                 if(!response.data.error) {
                     dispatch(loginSuccess(data));
                     browserHistory.push(successPath);

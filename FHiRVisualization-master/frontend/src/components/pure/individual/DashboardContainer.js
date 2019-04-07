@@ -6,9 +6,12 @@ import GroupBarChart from "../corporate/visualizations/GroupBarChart";
 import BrushLineGraph from "./visualizations/BrushLineGraph";
 import GoalRing from "./visualizations/GoalRing";
 import Clock from "./visualizations/Clock";
+import axios from 'axios';
 // import Victory from "./visualizations/Victory";
 
 import * as PropTypes from 'prop-types';
+
+console.log("DashboadContainer file");
 
 const dateTypeToyLabelMap = {
     'BMI': 'BMI (kg/m^2)',
@@ -22,8 +25,11 @@ const dateTypeToyLabelMap = {
 export default class DashboardGrid extends React.Component {
 
     constructor(props) {
+        console.log("starting dashboard container");
         super(props);
         this.state = {data: {}, goalData: {}, colour: {}, loadedCount: 0};
+
+        // functions
         this.loadDataToState = this.loadDataToState.bind(this);
         this.loadGoalData = this.loadGoalData.bind(this);
         this.checkVisType = this.checkVisType.bind(this);
@@ -148,6 +154,8 @@ export default class DashboardGrid extends React.Component {
     }
 
     componentDidMount() {
+        console.log("mounting");
+        
         // Either props.preferences is null, OR props.goals is null
         if (this.props.preferences != null) {
             // EVERYTHING HAPPENS WITHIN THE ONE PROMISE BELOW.
@@ -226,6 +234,7 @@ export default class DashboardGrid extends React.Component {
     // checkVisType takes in a given Visualzation spec: '{visualizationType}{dataRange}'
     // and returns an int corresponding to the type of visualization
     checkVisType(visualization) {
+        console.log("checking vis type");
         if (visualization.includes("BarChart")) {
           return 1;
         }
@@ -247,6 +256,7 @@ export default class DashboardGrid extends React.Component {
     // loadDataToState() takes: dataType, dataRange and an array of previously formatted data
     // and set
     loadDataToState(dataType, dataRange, formattedData) {
+        console.log("loading data to state");
         var obj = Object.assign({}, this.state);
         obj.data = obj.data || {};
         obj.data[dataType] = obj.data[dataType] || {};
@@ -259,6 +269,18 @@ export default class DashboardGrid extends React.Component {
     // Generates random goal data for a goal ring - Since we have no way of tracking the data
     // ManualLoadGoal() gets called on:
     loadGoalData(title, goal/*, current*/) {
+        console.log("loading goal data");
+        axios.get('/api/fitbitdata')
+        .then(function (response) {
+            // handle success
+            console.log("oooofff");
+            console.log(response);
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+
         let current = Math.round(Number(goal - (Math.random() * goal)));
         const sampleGoalRing = [{x: current.toString(), y: current},
             {x: Math.round(Number(goal - current)).toString(), y: (goal - current)},
@@ -276,6 +298,7 @@ export default class DashboardGrid extends React.Component {
     // vis has a dataType, colour, and dataRange
     // Switches using the checkVisType() method to determine what type of visualization is preferred
     renderVisualization(vis) {
+        console.log("rendering vis");
         switch (this.checkVisType(vis.visType)) {
             case 1:
                 return (<BarChart key={ vis.dataRange + vis.dataType + this.checkVisType(vis.visType) }
@@ -320,9 +343,19 @@ export default class DashboardGrid extends React.Component {
 
     // Returns a 'GoalRing' component given some specific goalData for a 'Title'
     renderGoalvisualization(name, goal) {
+        console.log("rendering visulisations");
+        axios.get('/api/fitbitdata')
+            .then(function (response) {
+                // handle success
+                console.log(response);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
         // return (<Clock key={goal + goal.name} className="dash__component" data={ this.state.goalData[name] }
         //                   title={ name } colour={ goal.colour }/> );
-        return (<GoalRing key={goal + goal.name} className="dash__component" data={ this.state.goalData[name] }
+        return (<Clock key={goal + goal.name} className="dash__component" data={ this.state.goalData[name] }
                           title={ name } colour={ goal.colour }/> );
         // return (
         // <BarChart key={goal + goal.name} className="dash__component" data={ this.state.goalData[name] }
@@ -331,6 +364,7 @@ export default class DashboardGrid extends React.Component {
     }
 
     loadGoals() {
+        console.log("loading Goals ");
         // list of goal vis accumulates a list of goals
         const listOfGoalVis = [];
         this.props.goals.map((g) => {
@@ -343,6 +377,7 @@ export default class DashboardGrid extends React.Component {
     // or a Visualisation DashboardGrid
     preferencesOrGoals() {
         if (this.props.preferences != null) {
+            console.log("rendering Visualization");
             return (
               // Returns a Visualisation DashboardGrid
                 <div className="dash__container">
@@ -358,6 +393,7 @@ export default class DashboardGrid extends React.Component {
                                 return this.state.data && this.state.data[vis.dataType] && this.state.data[vis.dataType][vis.dataRange] && this.state.data[vis.dataType][vis.dataRange].length > 0
                             })
                             .map(vis => {
+                                
                                 return (this.renderVisualization(vis))
                             })
                     }
@@ -365,6 +401,7 @@ export default class DashboardGrid extends React.Component {
             )
         }
         else {
+            console.log("rendering GoalVisualization");
             return (
               // Returns Goal-type DashboardGrid
                 <div className="dash__container-goals">

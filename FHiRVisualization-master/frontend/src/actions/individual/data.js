@@ -231,7 +231,7 @@ export function manualRemoveVisualization(dataType, visualization) {
 export function manualUpdateColour(dataType, colour) {
     return dispatch => {
         dispatch(beginUpdateColour());
-        console.log("Manual update colour called with " + dataType + " and " + colour);
+        // console.log("Manual update colour called with " + dataType + " and " + colour);
         return axios({
             method: "put",
             url: BASE_URL + "/api/individual/preferences",

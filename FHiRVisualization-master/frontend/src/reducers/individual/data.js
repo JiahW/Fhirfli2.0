@@ -64,7 +64,7 @@ const data = (state = {
                 };
             }
 
-            console.log(JSON.stringify(validVisualizations));
+            // console.log(JSON.stringify(validVisualizations));
             return Object.assign({}, state, {
                 preferences: preferences,
                 validVisualizations: validVisualizations,
@@ -88,7 +88,7 @@ const data = (state = {
         case LOAD_VISUALIZATIONS_FOR_SUCCESS: {
             let visualizations = action.visualizations;
             let validVisualizations = Object.assign({}, state.validVisualizations);
-            console.log("Valid Visualizations: " + JSON.stringify(validVisualizations));
+            // console.log("Valid Visualizations: " + JSON.stringify(validVisualizations));
             validVisualizations[action.dataType].isLoading = false;
             validVisualizations[action.dataType].hasLoaded = true;
             validVisualizations[action.dataType].visualizations = visualizations;
@@ -113,11 +113,11 @@ const data = (state = {
             let dataType = action.data.dataType;
             let colour = action.data.colour;
             let preferences = [...state.preferences];
-            console.log("Adding visualizations success " + JSON.stringify(action));
+            // console.log("Adding visualizations success " + JSON.stringify(action));
             let i = 0;
             // find index with "preference" for object
             for (; i < preferences.length; i++) {
-                console.log("checking[" + i + "]: prefs(" + JSON.stringify(preferences[i].dataType) + ") === " + JSON.stringify(dataType));
+                // console.log("checking[" + i + "]: prefs(" + JSON.stringify(preferences[i].dataType) + ") === " + JSON.stringify(dataType));
                 if (preferences[i].dataType === dataType) break;
             }
             if (i !== preferences.length) {

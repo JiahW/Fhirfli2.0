@@ -61,8 +61,9 @@ app.use(function (req, res, next) {
 
 // Main Backend Middleware
 app.use(main);
-let fitbit = require("./auth/fitbit.js")(app,passport);
-require("./api/individual/FitbitAPI")(app,fitbit);
+let fb = require("./auth/fitbit.js")
+fb.component1(app);
+require("./api/individual/FitbitAPI")(app,fb.component2);
 
 // Hosting the Frontend
 if (!env.PRODUCTION) {

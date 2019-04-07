@@ -5,19 +5,9 @@ import moment from 'moment';
 import * as propTypes from 'prop-types';
 import DashboardGrid from "./DashboardContainer";
 
-const elem = (colour, string) => (
-    <div key={string} style={{
-        backgroundColor: {colour},
-        width: 100,
-        height: 100
-    }}>
-        {string}
-    </div>
-
-);
-
 export default class Home extends Component {
     componentDidMount() {
+        console.log("Home.jsx individual");
         this.props.manualLoadGoals();
         this.props.manualLoadPreferences().then(() => {
             this.props.preferences.map((p) => {
@@ -54,22 +44,12 @@ export default class Home extends Component {
                     <h4 className="home__date">{moment().format("ddd D MMMM")}</h4>
                   </div>
                     {
-                        this.props.preferences.length > 0 && (
-                            <DashboardGrid preferences={ this.props.preferences } data={ this.props.data }
-                                           loadDataToState={ this.props.manualLoadData }/> )
+                        // this.props.preferences.length > 0 && (
+                            // <DashboardGrid preferences={ this.props.preferences } data={ this.props.data }
+                            //                loadDataToState={ this.props.manualLoadData }/> )
                     }
                     {
-                    /* May No Longer Need This
-                        this.props.preferences.map((preference) => {
-                            *                                     "dataType": "HeartRate",
-                             "colour":  DEFAULT_COLOUR,
-                             "visualization": [],
-                             *
-                            return preference.visualization.map((visualization, i) => {
-                                return (elem(preference.colour, visualization + " " + preference.dataType + " " + i));
-                            });
-                        })
-                    */
+                   
                     }
 
                     <div id="goals-content__header">
@@ -77,14 +57,7 @@ export default class Home extends Component {
                     </div>
                     {
                         this.props.goals.length > 0 && ( <DashboardGrid goals = { this.props.goals } /> )
-                        /* Might not need this anymore
-                          this.props.goals.map((goal, i) => {
-                            return (elem(goal.colour, JSON.stringify(goal)/* goal.name + " " + goal.value + " " + i*))
-                        })
-                        */
-                    }
-                    {
-                        //JSON.stringify(this.props.data)
+                        
                     }
                 </div>
         );

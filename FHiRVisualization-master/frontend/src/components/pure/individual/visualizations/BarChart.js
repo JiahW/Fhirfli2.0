@@ -44,7 +44,7 @@ export default class BarChart extends React.Component {
                                     {
                                       target: "labels",
                                       mutation: (props) => {
-                                        console.log("props: " + JSON.stringify(props));
+                                        // console.log("props: " + JSON.stringify(props));
                                         return { text: this.props.data[props.index].y };
                                       }
                                     },
@@ -136,7 +136,7 @@ export default class BarChart extends React.Component {
     }
 
     getXAxisFor(dataRange) {
-      console.log("data range: " + dataRange);
+    //   console.log("data range: " + dataRange);
         switch (dataRange) {
             case 'Daily':
                 let daily = [];
@@ -148,7 +148,7 @@ export default class BarChart extends React.Component {
                     daily.push("none" + i);
                   }
                 }
-                console.log("xAxis: " + JSON.stringify(daily));
+                // console.log("xAxis: " + JSON.stringify(daily));
                 return (daily);
                 break;
             case 'Weekly':

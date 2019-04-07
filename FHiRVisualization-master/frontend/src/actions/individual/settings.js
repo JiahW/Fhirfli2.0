@@ -82,7 +82,7 @@ export function manualLoadSettings() {
 export function manualAddAssociation(data) {
     return dispatch => {
         dispatch(beginAddAssociation());
-        console.log("Sending " + JSON.stringify(data));
+        // console.log("Sending " + JSON.stringify(data));
         return axios({
             method: "post",
             url: BASE_URL + "/api/individual/associations",
@@ -90,7 +90,7 @@ export function manualAddAssociation(data) {
         }).then(response => {
             if (!response.data.error) {
                 dispatch(addAssociationSuccess(response.data));
-                console.log("Got " + JSON.stringify(response.data));
+                // console.log("Got " + JSON.stringify(response.data));
             } else {
                 dispatch(addAssociationError(response.data));
             }

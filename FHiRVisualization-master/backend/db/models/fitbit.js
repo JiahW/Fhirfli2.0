@@ -10,7 +10,6 @@ const FitbitSchema = new Schema({
     type: String
 });
 
-
 const Fitbit = mongoose.model('Fitbit', FitbitSchema);
 module.exports = {
     fitbit: Fitbit,
