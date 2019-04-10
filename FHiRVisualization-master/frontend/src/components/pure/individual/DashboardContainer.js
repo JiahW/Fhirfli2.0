@@ -5,9 +5,11 @@ import BarChart from "./visualizations/BarChart";
 import GroupBarChart from "../corporate/visualizations/GroupBarChart";
 import BrushLineGraph from "./visualizations/BrushLineGraph";
 import GoalRing from "./visualizations/GoalRing";
+// import Victory from "./visualizations/Victory";
 import Clock from "./visualizations/Clock";
 import axios from 'axios';
-// import Victory from "./visualizations/Victory";
+import weight from "../../../../../Fitbit JSON fake user data/weight";
+import parser from "../../../../../Fitbit JSON fake user data/dataparser";
 
 import * as PropTypes from 'prop-types';
 
@@ -269,7 +271,9 @@ export default class DashboardGrid extends React.Component {
     // Generates random goal data for a goal ring - Since we have no way of tracking the data
     // ManualLoadGoal() gets called on:
     loadGoalData(title, goal/*, current*/) {
+
         console.log("loading goal data");
+
         axios.get('/api/fitbitdata')
         .then(function (response) {
             // handle success
@@ -281,11 +285,14 @@ export default class DashboardGrid extends React.Component {
             console.log(error);
         })
 
-        let current = Math.round(Number(goal - (Math.random() * goal)));
-        const sampleGoalRing = [{x: current.toString(), y: current},
-            {x: Math.round(Number(goal - current)).toString(), y: (goal - current)},
-        ];
+        // let current = Math.round(Number(goal - (Math.random() * goal)));
+        // const sampleGoalRing = [{x: current.toString(), y: current},
+        //     {x: Math.round(Number(goal - current)).toString(), y: (goal - current)},
+        // ];
+        const sampleGoalRing = [{x:500,y:300},{x:33,y:44}];
 
+        console.log("HEEERRREEEE");
+        console.log(this.state);
         var mock = Object.assign({}, this.state);
         mock.goalData = mock.goalData || {};
         mock.goalData[title] = mock.goalData[title] || {};
@@ -355,8 +362,12 @@ export default class DashboardGrid extends React.Component {
             })
         // return (<Clock key={goal + goal.name} className="dash__component" data={ this.state.goalData[name] }
         //                   title={ name } colour={ goal.colour }/> );
-        return (<Clock key={goal + goal.name} className="dash__component" data={ this.state.goalData[name] }
-                          title={ name } colour={ goal.colour }/> );
+        return (<GoalRing key={goal + goal.name} 
+                          className="dash__component" 
+                          data={ this.state.goalData[name] }
+                          title={ name } 
+                          colour={ goal.colour }/> );
+        // return (<Victory/>);
         // return (
         // <BarChart key={goal + goal.name} className="dash__component" data={ this.state.goalData[name] }
         //                   title={ name } colour={ goal.colour }/>

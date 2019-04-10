@@ -443,8 +443,8 @@ export default class Goals extends Component {
                 </div>
                 <div id="goals-date">
                     <div id="goals-date-items">
-                        <p>Fri 27</p>
-                        <p>October</p>
+                        {/* <p>Fri 27</p>
+                        <p>October</p> */}
                     </div>
                 </div>
                 <div id="goals-options">

@@ -77,8 +77,8 @@ export default class Victory extends React.Component {
     }
 }
 
-victory.propTypes = {
-    data: PropTypes.array, 
-    title: PropTypes.any,
-    colour: PropTypes.any,
-};
+// Victory.propTypes = {
+//     data: PropTypes.array, 
+//     title: PropTypes.any,
+//     colour: PropTypes.any,
+// };

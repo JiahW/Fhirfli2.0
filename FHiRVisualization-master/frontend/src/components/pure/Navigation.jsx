@@ -57,13 +57,14 @@ export default class Navigation extends Component {
                 (
                     <div id="navbar-root">
                         <img id="navbar-logo" src="/images/logo.svg"/>
-                        <h3 id="navbar-title"><strong>FHiR</strong> Visualization</h3>
+                        <h3 id="navbar-title"><strong>FHiR</strong> FlI 2.0</h3>
                         <div id="navbar-buttons">
                             <a id="navbar-auth-button" onClick={this._Corporatelogout}
                                style={buttonStyle}>Logout {this.props.user.email }</a>
                             <div id="navbar-options-container">
                                 <ul>
-                                    {/* <li><a target="_blank" href="/auth/fitbit">Fitbit</a></li> */}
+                                    {/* <li><a target="_blank" href="/auth/solid">Solid</a></li> */}
+                                    <li><a href="/auth/fitbit">Fitbit</a></li>
                                     <li><Link to="/corporate/home">Home</Link></li>
                                     <li><Link to="/corporate/data">All Data</Link></li>
                                     <li><Link to="/corporate/settings">Settings</Link></li>
@@ -76,7 +77,7 @@ export default class Navigation extends Component {
                 (
                     <div id="navbar-root">
                         <img id="navbar-logo" src="/images/logo.svg"/>
-                        <h3 id="navbar-title"><strong>FHiR</strong> Visualization</h3>
+                        <h3 id="navbar-title"><strong>FHiR</strong> FlI 2.0</h3>
                         <div id="navbar-buttons">
                             <Link id="navbar-auth-button" to="/individual/login">Log in</Link>
                         </div>
