@@ -4,9 +4,10 @@ import '../styles/Home.scss';
 import moment from 'moment';
 import * as propTypes from 'prop-types';
 import DashboardGrid from "./DashboardContainer";
-import Victory from './visualizations/Victory';
-import Graphs from './visualizations/graphs';
-
+import WeightGraph from './visualizations/weightGraph';
+import Heart from './visualizations/Heart';
+import BmiGraph from './visualizations/bmiGraph';
+import axios from 'axios';
 
 // const data = [
 //     {x: 1, y: 13000},
@@ -15,10 +16,13 @@ import Graphs from './visualizations/graphs';
 //     {x: 4, y: 19000}
 //   ];
 
+
+
 export default class Home extends Component {
     componentDidMount() {
         console.log("Home.jsx individual");
         this.props.manualLoadGoals();
+        // this.handleClick = this.handleClick.bind(this);
         this.props.manualLoadPreferences().then(() => {
             this.props.preferences.map((p) => {
                 p.visualization.map((v) => {
@@ -46,8 +50,21 @@ export default class Home extends Component {
         return "Range is undefined";
     }
 
+    // handleClick () {
+    //     console.log("heree");
+    //     axios.get('/api/FitbitIsAuth')
+    //       .then(response => {
+    //           this.setState({showResults: false}, function () {
+    //             // console.log("tjisss"+this.state.showResults);
+    //         });
+    //         //   console.log("RESP" + (response.data));
+    //         //   console.log(this.state.showResults);
+    //         })
+    //   }
+      
     
     render() {
+        // this.handleClick();
         return (
             <div id="home-container" className="basic">
                   <div id="home-content__header">
@@ -55,13 +72,23 @@ export default class Home extends Component {
                     <h4 className="home__date">{moment().format("ddd D MMMM")}</h4>
                   </div>
                     <div id="goals-content__header">
-                      <h2 className="goals__title">Goals</h2>
+                      <h2 className="goals__title"></h2>
                     </div>
                     {
                         // this.props.goals.length > 0 && ( <DashboardGrid goals = { this.props.goals } /> )
                         
                     }
-                    <div id="try" ><Graphs /></div>
+                    <div id="try" >
+                    <WeightGraph />
+                    
+                    {/* { this.state.showResults ? <WeightGraph /> : null } */}
+                    </div><br></br>
+                    <div id="try">
+                    <Heart />
+                    </div><br></br>
+                    <div id="try">
+                    <BmiGraph />
+                    </div><br></br>
                 </div>
         );
     }

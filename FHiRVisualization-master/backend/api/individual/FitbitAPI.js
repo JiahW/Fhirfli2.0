@@ -1,5 +1,6 @@
 const FitbitModel = require('../../db/models/fitbit').fitbit;
 const renew_acess_token = require('../../auth/fitbit').renew_acess_token;
+const isauth = require('../../auth/fitbit').authenticated;
 
 module.exports = (app,getFitBit) => 
 { 
@@ -12,12 +13,18 @@ module.exports = (app,getFitBit) =>
                 res.send(data[0]);
             }else{
                 getFitBit(req,res);
-                
+                req.user.authenticated = true;
             }
         }).catch(err => {
             res.send(err);
             console.log(err);
         });   
+    });
+
+    app.get('/api/FitbitIsAuth', (req, res) => {
+        console.log(req.user.authenticated);
+        if (req.user.authenticated == undefined) res.send("false");
+        // res.send((req.user.authenticated));
     });
 }
 

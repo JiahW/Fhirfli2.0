@@ -5,11 +5,8 @@ import BarChart from "./visualizations/BarChart";
 import GroupBarChart from "../corporate/visualizations/GroupBarChart";
 import BrushLineGraph from "./visualizations/BrushLineGraph";
 import GoalRing from "./visualizations/GoalRing";
-// import Victory from "./visualizations/Victory";
 import Clock from "./visualizations/Clock";
 import axios from 'axios';
-import weight from "../../../../../Fitbit JSON fake user data/weight";
-import parser from "../../../../../Fitbit JSON fake user data/dataparser";
 
 import * as PropTypes from 'prop-types';
 
