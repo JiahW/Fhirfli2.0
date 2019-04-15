@@ -56,7 +56,7 @@ export default class Navigation extends Component {
             : this.props.user.corporateStatus === corporateStatus.CORPORATE ?
                 (
                     <div id="navbar-root">
-                        <img id="navbar-logo" src="/images/logo.svg"/>
+                        <img id="navbar-logo" src={require("../../images/logo.svg")}/>
                         <h3 id="navbar-title"><strong>FHiR</strong> FlI 2.0</h3>
                         <div id="navbar-buttons">
                             <a id="navbar-auth-button" onClick={this._Corporatelogout}
@@ -76,7 +76,7 @@ export default class Navigation extends Component {
                 :
                 (
                     <div id="navbar-root">
-                        <img id="navbar-logo" src="/images/logo.svg"/>
+                        <img id="navbar-logo" src={require("../../images/logo.svg")}/>
                         <h3 id="navbar-title"><strong>FHiR</strong> FlI 2.0</h3>
                         <div id="navbar-buttons">
                             <Link id="navbar-auth-button" to="/individual/login">Log in</Link>

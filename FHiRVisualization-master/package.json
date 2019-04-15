@@ -4,7 +4,8 @@
   "description": "A quick node app to learn d3",
   "main": "index.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.prod.js",
+    "build": "npm run build2 && cross-env NODE_ENV=production webpack --config ./webpack.config.prod.js",
+    "build2": "cross-env NODE_ENV=production webpack --config ./webpack.config.prod2.js",
     "development": "cross-env NODE_ENV=development nodemon ./backend/index.js",
     "debug": "cross-env NODE_ENV=development nodemon --debug ./backend/index.js",
     "production": "cross-env NODE_ENV=production nodemon ./backend/index.js",

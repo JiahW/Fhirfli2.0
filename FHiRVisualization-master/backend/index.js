@@ -107,23 +107,25 @@ if (!env.PRODUCTION) {
 
 }
 else {
-    require("./auth/fitbit.js")(app,passport);
-    require("./auth/solid.js")(app,passport);
+    // require("./auth/fitbit.js")(app,passport);
+    // require("./auth/solid.js")(app,passport);
 
     // If not in development environment, then the website can just be served from the filesystem.
     // This expects that the user has already run yarn run build:production
     app.use('/static', express.static(path.join(__dirname, '../frontend/dist')));
-
-
-    // Serve the project frontend at the website root.
-    app.get('/', (req, res) => {
-        res.sendFile(path.join(__dirname, '../frontend/dist/index.html'))
-    });
+    app.use('/static2', express.static(path.join(__dirname, '../frontend/dst')));
 
 
     // Redirect all requests not to the main backend to the system home page.
     app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+        // direct to homepage
+        if(req.headers.host[0]=='www'){
+            res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+        }
+        // direct to login page
+        else{
+            res.sendFile(path.join(__dirname, '../frontend/dst/index.html'));
+        }
     });
 }
 

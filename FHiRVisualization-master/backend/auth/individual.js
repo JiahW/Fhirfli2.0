@@ -55,7 +55,7 @@ module.exports = (env, passport) => {
     router.post('/signup', (req, res) => {
         
         const {email, password, name} = req.body;
-        IndividualUser.findOne({'email': email}, (err, userMatch) => {
+        IndividualUser.findOne({'name': name}, (err, userMatch) => {
             if (err) {
                 return res.json(sanitizeError(env, err));
             }
