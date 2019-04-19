@@ -1,11 +1,10 @@
 const User = require('../db/models/user').individual;
 const FitbitModel = require('../db/models/fitbit').fitbit;
-const weight = require("../../Fitbit JSON fake user data/weight");
 
 const FitbitApiClient = require("fitbit-node");
 var fhir = require('fhir-converter');
 
-var callback = "https://7a688f44.ngrok.io/auth/fitbit/callback";
+var callback = "https://4be71655.ngrok.io/auth/fitbit/callback";
 
 // Creating a converter from Fitbit to FHIR
 var converter = new fhir('fitbit');
@@ -28,6 +27,10 @@ function renew_acess_token (req){
   }
   });
     return 1;
+  }).catch(err =>{
+    console.log((err));
+        
+        return (err);
   });
 }
 
@@ -58,7 +61,9 @@ function component2(req,res) {
   req.user.authenticated = true;
   // https://dev.fitbit.com/build/reference/web-api/
 
-  client.get("/body/log/weight/date/"+ todayDate + "/1w.json", req.user.access_token)
+
+  // https://api.fitbit.com/1/user/-/activities/heart/date/today/1d.json
+  client.get("/activities/heart/date/"+ todayDate + "/1w.json", req.user.access_token)
   .then(results => {
     console.log("got to results....");
     var Result = converter.convert(results[0]);

@@ -1,11 +1,9 @@
 function parseFitbitWeight(weight)
 {
     var weightList = weight["weight"];
-    // console.log(weightList.length);
     var weightvalues = new Array();
     var bmivalues = new Array();
     var datesList = new Array();
-    // var myauth = auth;
 
     for (var i = 0; i < weightList.length; i++ )
     {

@@ -5,7 +5,7 @@ import heartDataParser from '../../../../../../Fitbit JSON fake user data/heartp
 import weightDataParser from '../../../../../../Fitbit JSON fake user data/weightdataparser';
 import HeartFakeData from '../../../../../../Fitbit JSON fake user data/activites-heart';
 import weightFakeData from '../../../../../../Fitbit JSON fake user data/weight';
-
+import axios from 'axios';
 
 var avgHeartValues = heartDataParser(HeartFakeData);
 var dateslist = weightDataParser(weightFakeData)[1];
@@ -16,12 +16,24 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      // data:'',
       clicked: false,
       style: {
         data: { fill: "green" }
       }
     };
   }
+  //console.log("sssss"+JSON.stringify(response.data["fitbitdata"]) + "" + response.status)
+
+  // componentDidMount()
+  // {
+  //   axios.get('/api/fitbitdata')
+  //   .then(response => this.setState({data: heartDataParser(JSON.stringify(response.data)) } , () => {
+  //     console.log("sssss"+this.state.data);
+  //   }).catch(err => console.log("errrrrrr" +err)));
+
+    
+  // }
 
   render() {
     const handleMouseOver = () => {
