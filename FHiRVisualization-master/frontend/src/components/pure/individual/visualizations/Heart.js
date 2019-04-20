@@ -10,13 +10,13 @@ import axios from 'axios';
 var avgHeartValues = heartDataParser(HeartFakeData);
 var dateslist = weightDataParser(weightFakeData)[1];
 
-// console.log(heartMinutesvalues);
+// console.log(avgHeartValues);
 
 export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      // data:'',
+      data:'',
       clicked: false,
       style: {
         data: { fill: "green" }
@@ -31,7 +31,6 @@ export default class App extends React.Component {
   //   .then(response => this.setState({data: heartDataParser(JSON.stringify(response.data)) } , () => {
   //     console.log(""+this.state.data);
   //   }).catch(err => console.log("" +err)));
-
     
   // }
 
@@ -47,6 +46,9 @@ export default class App extends React.Component {
       });
     };
 
+
+    
+
     return (
       <div>
         <VictoryChart height={400} width={400}
@@ -60,10 +62,16 @@ export default class App extends React.Component {
             }
             style={this.state.style}
             data={[
+              // { x: "30 - 90", y: this.state.data[0] },
+              // { x: "90 - 130", y: this.state.data[1] },
+              // { x: "130 - 160", y: this.state.data[2] },
+              // { x: "160 - 220", y: this.state.data[3] }
+
               { x: "30 - 90", y: avgHeartValues[0] },
               { x: "90 - 130", y: avgHeartValues[1] },
               { x: "130 - 160", y: avgHeartValues[2] },
               { x: "160 - 220", y: avgHeartValues[3] }
+
             ]}
           />
         </VictoryChart>
