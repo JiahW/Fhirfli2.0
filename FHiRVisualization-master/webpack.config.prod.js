@@ -43,6 +43,14 @@ module.exports = {
                 use: [
                     'file-loader'
                 ]
+            },
+            {
+                test: /\.css$/,
+                use:['style-loader','css-loader'],
+            },
+            {
+                test: /\.(eot|ttf|woff|woff2)(\?\S*)?$/,
+                loader: 'file-loader'
             }
         ]
     },
