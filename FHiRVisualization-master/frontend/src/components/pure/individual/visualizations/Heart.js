@@ -29,8 +29,8 @@ export default class App extends React.Component {
   // {
   //   axios.get('/api/fitbitdata')
   //   .then(response => this.setState({data: heartDataParser(JSON.stringify(response.data)) } , () => {
-  //     console.log("sssss"+this.state.data);
-  //   }).catch(err => console.log("errrrrrr" +err)));
+  //     console.log(""+this.state.data);
+  //   }).catch(err => console.log("" +err)));
 
     
   // }
