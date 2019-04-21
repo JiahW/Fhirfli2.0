@@ -4,6 +4,9 @@ import '../styles/Home.scss';
 import moment from 'moment';
 import * as propTypes from 'prop-types';
 import CorporateDashboardGrid from "./DashboardContainerCorporate";
+import WeightGraph from '../../pure/individual/visualizations/weightGraph';
+import Heart from '../../pure/individual/visualizations/Heart';
+import BmiGraph from '../../pure/individual/visualizations/bmiGraph';
 
 const elem = (text) => (
     <div style={{
@@ -64,7 +67,19 @@ export default class Home extends Component {
                          })*/
                     }
                 </div>
+
+                
+                    
+                    {/* <div id="try" >
+                    <WeightGraph />
+                    </div><br></br>
+
+                    <div id="try">
+                    <Heart />
+                    </div><br></br> */}
+                
             </div>
+            
         );
     }
 }

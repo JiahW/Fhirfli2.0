@@ -74,21 +74,27 @@ export default class Home extends Component {
                     <div id="goals-content__header">
                       <h2 className="goals__title"></h2>
                     </div>
-                    {
-                        // this.props.goals.length > 0 && ( <DashboardGrid goals = { this.props.goals } /> )
-                        
-                    }
-                    <div id="try" >
-                    <WeightGraph />
-                    
-                    {/* { this.state.showResults ? <WeightGraph /> : null } */}
-                    </div><br></br>
-                    <div id="try">
-                    <Heart />
-                    </div><br></br>
                     <div id="try">
                     <BmiGraph />
                     </div><br></br>
+                    
+                    <div id="try" >
+                    {
+                        
+                        this.props.goals.length > 0 && ( <DashboardGrid goals = { this.props.goals } /> )
+                        
+                    }
+                    </div><br></br>
+                    <div id="try" >
+                    <WeightGraph />
+                    </div><br></br>
+
+                    <div id="try">
+                    <Heart />
+                    </div><br></br>
+
+                    
+                    
                 </div>
         );
     }
