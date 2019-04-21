@@ -4,7 +4,7 @@ const FitbitModel = require('../db/models/fitbit').fitbit;
 const FitbitApiClient = require("fitbit-node");
 var fhir = require('fhir-converter');
 
-var callback = "https://53c2206c.ngrok.io/auth/fitbit/callback";
+var callback = "https://fhirfli.uk.to/auth/fitbit/callback";
 
 // Creating a converter from Fitbit to FHIR
 var converter = new fhir('fitbit');
